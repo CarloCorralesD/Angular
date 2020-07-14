@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
   //providers: [PostService]
 })
 export class AppComponent {
+  users = ['ryan','joe','cameron','john'];
+  activated = false;
   title = 'my-dream-app';
   name : string;
   email; // : string ;

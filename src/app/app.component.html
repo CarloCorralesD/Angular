@@ -27,7 +27,11 @@
 </form>
 </div>
 
-<app-hello-world>Aqui</app-hello-world>
+<app-hello-world></app-hello-world>
+
+<ul>
+    <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+</ul>
 
 <!-- <div class="ash">
   <h3>Modifica el contenido:</h3>
