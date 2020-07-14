@@ -11,18 +11,28 @@ import { Component } from '@angular/core';
   //providers: [PostService]
 })
 export class AppComponent {
-  users = ['ryan','joe','cameron','john'];
-  activated = false;
-  title = 'my-dream-app';
-  name : string;
+  name : string = "Carlo Jose Luis"; 
+  age : number = 40; 
   email; // : string ;
   webpage : string;
   hobbies : string[];
   showHobbies : boolean;
+  title = 'my-dream-app';
+  users = ['ryan','joe','cameron','john'];
+  activated = false;
 
   sayHello() {
 	  alert("Hola Desde app.component");
   }
+
+  addUser(newUser) {
+	  //console.log(newUser.value);
+	  this.users.push(newUser.value);
+	  newUser.value = '';
+	  newUser.focus();
+	  return false;
+  }
+
   deleteUser(user) {
 	  for(let i=0; i<this.users.length; i++) {
 		  if (user==this.users[i]) {
@@ -54,16 +64,3 @@ export class AppComponent {
   	return false;
   }
 }
-
-/*@NgModule({
-	declarations: [
-		AppComponent
-	],
-	imports: [
-		FormsModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
-})
-
-export class AppModule { }. */

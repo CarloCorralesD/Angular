@@ -36,11 +36,25 @@
 <button (click)="sayHello()">Hazme click</button>
 
 <h1>Desde app.component</h1>
+<form (submit)="addUser(newUser)">
+  <input type="text" #newUser>
+  <button>Agregar Usuario</button>
+</form>
+
 <ul>
   <li *ngFor="let user of users">
     {{ user }}  <button (click)="deleteUser(user)">Borrar Usuario</button>
   </li>
 </ul>
+
+<div>
+  <form>
+    <input type="text" name="name" [(ngModel)]="name">
+    <input type="text" name="age" [(ngModel)]="age">
+  </form>
+  <h2>Name: {{ name }}</h2>
+  <h2>Age: {{ age }}</h2>
+</div>
 
 <!-- <div class="ash">
   <h3>Modifica el contenido:</h3>
