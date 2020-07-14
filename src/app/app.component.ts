@@ -19,6 +19,17 @@ export class AppComponent {
   webpage : string;
   hobbies : string[];
   showHobbies : boolean;
+
+  sayHello() {
+	  alert("Hola Desde app.component");
+  }
+  deleteUser(user) {
+	  for(let i=0; i<this.users.length; i++) {
+		  if (user==this.users[i]) {
+			  this.users.splice(i,1);
+		  }
+	  }
+  }
   
   constructor() { //private postService: PostService) {
   	console.log("Constructor working...");
