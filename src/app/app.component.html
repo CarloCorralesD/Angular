@@ -56,25 +56,11 @@
   <h2>Age: {{ age }}</h2>
 </div>
 
-<!-- <div class="ash">
-  <h3>Modifica el contenido:</h3>
-  <label for="name">Name: </label>
-   <input 
-    type="text" 
-    name="name" 
-    placeholder="change the name" 
-    [(ngModel)] = "name"
-    #myModel = "ngModel"
-   >
-  <label for="email">Email: </label>
-  <input 
-    type="text" 
-    name="email" 
-    placeholder="change the email" 
-    [(ngModel)] = "email"
-  >
-</div> -->
-
 <div class="black">
   <h1> {{ title }} </h1>
 </div>
+
+<div class="ash" *ngFor="let post of posts">
+  <h2>{{ post.title }}</h2>
+  <h3>{{ post.body }}</h3>
+</div> 

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+
+import { DataService } from './data.service';
+
 //import { NgModule } from '@angular/core';
 //import { FormsModule } from '@angular/forms';
 
-//import {PostService} from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,23 @@ export class AppComponent {
   title = 'my-dream-app';
   users = ['ryan','joe','cameron','john'];
   activated = false;
+  posts = [];
+  
+  constructor(private dataService: DataService) { 
+	this.dataService.getData().subscribe(data => {
+		//console.log(data);
+		this.posts = data;
+	});  
+  	console.log("Constructor working...");
+  	this.name = "Carlo Jose Luis";
+  	this.email = "ccorrales@unsa.edu.pe";
+  	this.webpage = "http://www.unsa.edu.pe";
+  	this.hobbies = ["Futbol","Programación","Netflix"];
+  	this.showHobbies = false;
+  	/* this.postService.getPosts().subscribe(posts=> {
+  		console.log(posts);
+  	}); */
+  }
 
   sayHello() {
 	  alert("Hola Desde app.component");
@@ -39,18 +58,6 @@ export class AppComponent {
 			  this.users.splice(i,1);
 		  }
 	  }
-  }
-  
-  constructor() { //private postService: PostService) {
-  	console.log("Constructor working...");
-  	this.name = "Carlo Jose Luis";
-  	this.email = "ccorrales@unsa.edu.pe";
-  	this.webpage = "http://www.unsa.edu.pe";
-  	this.hobbies = ["Futbol","Programación","Netflix"];
-  	this.showHobbies = false;
-  	/* this.postService.getPosts().subscribe(posts=> {
-  		console.log(posts);
-  	}); */
   }
 
   toggleHobbies() {
